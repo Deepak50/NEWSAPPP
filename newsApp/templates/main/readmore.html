@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cyborg/bootstrap.min.css"
+        integrity="sha512-QzwqVdCfEIUhmovYlJ/ET11Uh4MLuvEpwVpTVTRhChwzgfkrQH9BMcDvgwFpi5fMUGVLJAPsEXJVHuODuhmctg=="
+        crossorigin="anonymous" />
+    <title>News App</title>
+    <style>
+        body {
+            background-color: hotpink;
+        }
+
+        #crd {
+            color: black;
+            background-color: white;
+        }
+
+        #crd:hover {}
+
+        #readmore {
+            background-color: blue;
+            color: white;
+            border: 1px solid blue;
+            border-radius: 0px;
+        }
+
+        #readmore:hover {
+            background-color: transparent;
+            color: blue;
+        }
+
+        #saved {
+            background-color: green;
+            color: white;
+            border: 1px solid green;
+            border-radius: 0px;
+        }
+
+        #saved:hover {
+            background-color: transparent;
+            color: green;
+
+        }
+
+        @media only screen and (max-width: 600px) {
+            #nbar {
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+
+<body style="background-color: snow;">
+    <div class="navbar fixed-top navbar-dark bg-dark">
+        <div class="container">
+            <h4 style="color: rgb(154, 255, 0); margin:0px; padding:0px;">NewsApp</h4>
+            <!-- <img src="{% static 'images/background.gif' %}" class="image" style="width:90px; "> -->
+        </div>
+    </div>
+
+
+    <div style="display: flex; height: 100vh;">
+        <!-- this is navbar div -->
+        <div id="nbar" style="width:20%; background-color: black; margin-top: 8vh;">
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link " id="v-pills-home-tab" data-toggle="pill" href="http://127.0.0.1:8000/" role="tab"
+              aria-controls="v-pills-home" aria-selected="false">Home</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="http://127.0.0.1:8000/save?ib=0" role="tab"
+              aria-controls="v-pills-profile" aria-selected="false">Saved</a>
+          </div>
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+              ...
+            </div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...
+            </div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...
+            </div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...
+            </div>
+          </div>
+        </div>
+
+
+    <div id="crd" class="card" style="width: 20rem; height:25rem; margin: auto; margin-bottom: 5vh; margin-top: 10vh;">
+        <img class="card-img-top" src="{{ img }}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{news}}{{ value|linebreaks }}</h5>
+        </div>
+        <br>
+        <br>
+        <div class="card-body">
+            <p class="card-title">{{desc}}{{ value|linebreaks }}</p>
+            <p> Since you are using a trial version of this API... YOu have to purchase a subscription to get the detailed news and continue using this API.
+                You wont get everything in life for free. YOu have to spend some money for projects like thus.
+            </p>
+
+            <a href="http://127.0.0.1:8000" class="btn btn-success" style="width: 100%;">More News</a>
+        </div>
+
+        <!-- <p class="card-text" style="text-align: center;">{{ des }}{{ value|linebreaks }}</p> -->
+    </div>
+
+</body>
+
+</html>
