@@ -10,36 +10,39 @@
     crossorigin="anonymous" />
   <title>News App</title>
   <style>
-    body{
-        background-color: hotpink;
-      }
-    #crd{
-      color:black;
-      background-color: white;
-    }
-    #crd:hover {
-      
-    }
-    #readmore{
-      background-color: blue;
-      color: white;
-      border:1px solid blue; 
-      border-radius: 0px;
-    }
-    #readmore:hover{
-      background-color: transparent; 
-      color:blue; 
+    body {
+      background-color: hotpink;
     }
 
-    #saved{
-      background-color:green;
+    #crd {
+      color: black;
+      background-color: white;
+    }
+
+    #crd:hover {}
+
+    #readmore {
+      background-color: blue;
       color: white;
-      border:1px solid green; 
+      border: 1px solid blue;
       border-radius: 0px;
     }
-    #saved:hover{
-      background-color: transparent; 
-      color:green; 
+
+    #readmore:hover {
+      background-color: transparent;
+      color: blue;
+    }
+
+    #saved {
+      background-color: green;
+      color: white;
+      border: 1px solid green;
+      border-radius: 0px;
+    }
+
+    #saved:hover {
+      background-color: transparent;
+      color: green;
 
     }
 
@@ -47,15 +50,15 @@
       #nbar {
         display: none;
       }
-      
+
     }
   </style>
 </head>
 
-<body style = "background-color: snow;">
+<body style="background-color: snow;">
   <div class="navbar fixed-top navbar-dark bg-dark">
     <div class="container">
-      <h4 style="color: rgb(154, 255, 0); margin:0px; padding:0px;">NewsApp</h4>
+      <h4 style="color: rgb(154, 255, 0); margin:auto; padding:0px;">NewsApp</h4>
       <!-- <img src="{% static 'images/background.gif' %}" class="image" style="width:90px; "> -->
     </div>
   </div>
@@ -100,15 +103,48 @@
     </button>
   </div> -->
 
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" style="margin-top: 8vh; background-color: rgb(12, 67, 150);">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav" style="width:70%; background-color: transparent; color:white; margin:auto">
+          <form action = "india">
+            <input id="india" type="submit" class="btn btn-danger" style="margin:auto; width: 8rem; margin-right:5px;" value="India">
+          </form>
+          <form action = "world">
+            <input id="world" type="submit" class="btn btn-primary" style="margin:auto; width: 8rem; margin-right:5px;" value="World">
+          </form>
+          <form action = "science">
+            <input id="science" type="submit" class="btn btn-warning" style="margin:auto; width: 8rem; margin-right:5px;" value="Science">
+          </form>
+          <form action = "sports">
+            <input id="sports" type="submit" class="btn btn-success" style="margin:auto; width: 8rem; margin-right:5px;" value="Sports">
+          </form action = "india">
+          <form action = "entertainment">
+            <input id="entertainment" type="submit" class="btn btn-info" style="margin:auto; width: 8rem; margin-right:5px;" value="Entertainment">
+          </form action>
+          <form action = "us">
+            <input id="us" type="submit" class="btn btn-primary" style="margin:auto; width: 8rem; margin-right:5px;" value="U.S">
+          </form action>
+          <form action = "health">
+            <input id="health" type="submit" class="btn btn-danger" style="margin:auto; width: 8rem; margin-right:5px;" value="Health">
+          </form action>
+        </div>
+      </div>
+    </div>
+  </nav>
 
   <div style="display: flex;">
     <!-- this is navbar div -->
-    <div id="nbar" style="width:20%; background-color: black; margin-top: 8vh;">
+    <div id="nbar" style="width:20%; background-color: rgb(12, 67, 150); margin-top: 16vh;">
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link " id="v-pills-home-tab" data-toggle="pill" href="http://127.0.0.1:8000/" role="tab"
           aria-controls="v-pills-home" aria-selected="false">Home</a>
-        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="http://127.0.0.1:8000/save?ib=0" role="tab"
-          aria-controls="v-pills-profile" aria-selected="false">Saved</a>
+        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="http://127.0.0.1:8000/save?ib=0"
+          role="tab" aria-controls="v-pills-profile" aria-selected="false">Saved</a>
       </div>
       <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -125,7 +161,7 @@
 
 
     <!-- this is content div -->
-    <div style="display: flex; flex-direction: row;  flex-wrap: wrap; width:80%; margin:auto; margin-top: 10vh;">
+    <div style="display: flex; flex-direction: row;  flex-wrap: wrap; width:80%; margin:auto; margin-top: 20vh;">
       {% for idd, hl, des, img in mylist %}
       <!-- card -->
       <div id="crd" class="card" style="width: 20rem; height:25rem; margin: auto; margin-bottom: 5vh;">
@@ -137,12 +173,13 @@
         <div style="display: flex; flex-wrap: wrap; flex-direction: row;">
           <form action="readmore" style="margin:auto;">
             <input type=text value="{{ idd }}" style="display: none;" name="ib">
-            <input id = "readmore" type="submit" class="btn btn-primary" style="margin:auto; width: 8rem; " value="Read more">
+            <input id="readmore" type="submit" class="btn btn-primary" style="margin:auto; width: 8rem; "
+              value="Read more">
           </form>
-          
+
           <form action="save" style="margin:auto;">
             <input type=text value="{{ idd }}" style="display: none;" name="ib">
-            <input id = "saved" type="submit" class="btn btn-success" style="margin:auto; width:8rem;" value="Save">
+            <input id="saved" type="submit" class="btn btn-success" style="margin:auto; width:8rem;" value="Save">
           </form>
         </div>
       </div>
